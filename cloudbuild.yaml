@@ -27,7 +27,5 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=devops-hof-demo'
   - 'USER=fluxctl'
   - 'FLUX_FORWARD_NAMESPACE=flux'
-  - 'CONTROLLER=default:deployment/devops-demo-staging'
-  entrypoint: 'bash'
-  args:
-  - './scripts/fluxwatch.sh'
+  - 'COMMIT_SHA=$COMMIT_SHA'
+  - 'BRANCH_NAME=$BRANCH_NAME'
