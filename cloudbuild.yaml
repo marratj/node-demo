@@ -29,6 +29,7 @@ steps:
   - 'FLUX_FORWARD_NAMESPACE=flux'
   args:
   - 'release'
-  - '--namespace default'
+  - '--namespace'
+  - 'default'
   - '--all' 
   - '--update-all-images'
