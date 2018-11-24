@@ -20,8 +20,10 @@ steps:
     docker push gcr.io/$PROJECT_ID/node-demo:$COMMIT_SHA
     [[ "$BRANCH_NAME" == "master" ]] && docker push gcr.io/$PROJECT_ID/node-demo:prod-$COMMIT_SHA || exit 0
 
-- name: 'marratj/fluxctl'
+- name: 'gcr.io/devops-hof/fluxctl'
   id: 'fluxctl'
-  entrypoint: '/fluxctl'
+  env:   
+  - 'CLOUDSDK_COMPUTE_ZONE=europe-west3-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=devops-hof-demo'
   args:
   - 'list-controllers'
