@@ -22,5 +22,6 @@ steps:
 
 - name: 'marratj/fluxctl'
   id: 'fluxctl'
+  entrypoint: '/fluxctl'
   args:
   - 'list-controllers'
