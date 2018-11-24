@@ -9,7 +9,7 @@ steps:
     echo "This step only builds an image if this build was triggered by a push to master."
     echo "{\"gitsha\": \"$COMMIT_SHA\"}" > devops-demo/info.json
     docker build -t gcr.io/$PROJECT_ID/node-demo:$COMMIT_SHA .
-    [[ "$BRANCH_NAME" == "master" ]] && docker tag gcr.io/$PROJECT_ID/node-demo:$COMMIT_SHA gcr.io/$PROJECT_ID/node-demo:prod-$COMMIT_SHA && exit 0
+    [[ "$BRANCH_NAME" == "master" ]] && docker tag gcr.io/$PROJECT_ID/node-demo:$COMMIT_SHA gcr.io/$PROJECT_ID/node-demo:prod-$COMMIT_SHA || exit 0
     
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
@@ -18,4 +18,4 @@ steps:
   - '-c'
   - |
     docker push gcr.io/$PROJECT_ID/node-demo:$COMMIT_SHA
-    [[ "$BRANCH_NAME" == "master" ]] && docker push gcr.io/$PROJECT_ID/node-demo:prod-$COMMIT_SHA && exit 0
+    [[ "$BRANCH_NAME" == "master" ]] && docker push gcr.io/$PROJECT_ID/node-demo:prod-$COMMIT_SHA || exit 0
