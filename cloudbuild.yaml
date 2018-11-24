@@ -26,5 +26,9 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west3-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=devops-hof-demo'
   - 'USER=fluxctl'
+  - 'FLUX_FORWARD_NAMESPACE=flux'
   args:
-  - 'list-controllers'
+  - 'release'
+  - '--namespace default'
+  - '--all' 
+  - '--update-all-images'
