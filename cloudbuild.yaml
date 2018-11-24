@@ -32,7 +32,6 @@ steps:
   args:
   - '-c'
   - |
-    echo $CONTROLLER
     echo $USER
 
 #
