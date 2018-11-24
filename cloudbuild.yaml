@@ -29,7 +29,6 @@ steps:
   - 'FLUX_FORWARD_NAMESPACE=flux'
   args:
   - 'release'
-  - '--namespace'
-  - 'default'
-  - '--all' 
+  - '--controller'
+  - 'default:deployment/devops-demo-prod,default:deployment/devops-demo-staging'
   - '--update-all-images'
