@@ -25,5 +25,6 @@ steps:
   env:   
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west3-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=devops-hof-demo'
+  - 'USER=fluxctl'
   args:
   - 'list-controllers'
